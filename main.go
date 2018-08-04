@@ -17,7 +17,7 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 	e.Use(middleware.Secure())
-	e.Use(middleware.Gzip())
+	//e.Use(middleware.Gzip()) // DONT USE GZIP WHEN STREAMING FILES// BAD THINGS HAPPEN
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("secret"))))
 	//CORS
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
